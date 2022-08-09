@@ -6,7 +6,7 @@ phases:
     - aws --version
     # update the following line with your own region
     - $(aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 497671078010.dkr.ecr.us-east-1.amazonaws.com)
-    - REPOSITORY_URI=332167152351.dkr.ecr.us-east-1.amazonaws.com/gc-prod/springboot 
+    - REPOSITORY_URI=497671078010.dkr.ecr.us-east-1.amazonaws.com/javacodepipeline 
     - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build: 
     commands: 
