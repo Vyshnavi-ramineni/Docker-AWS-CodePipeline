@@ -12,7 +12,7 @@ phases:
     commands: 
     - echo Build started on `date` 
     - echo Building the Docker image... 
-    - docker build -t javacodepipeline .
+    - docker build .
     - docker images
     - docker tag javacodepipeline:latest 497671078010.dkr.ecr.us-east-1.amazonaws.com/javacodepipeline:latest
   post_build: 
