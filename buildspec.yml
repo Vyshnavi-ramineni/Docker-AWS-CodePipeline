@@ -13,13 +13,14 @@ phases:
     - echo Build started on `date` 
     - echo Building the Docker image... 
     - docker build -t javacodepipeline .
+    - docker images
     - docker tag javacodepipeline:latest 497671078010.dkr.ecr.us-east-1.amazonaws.com/javacodepipeline:latest
   post_build: 
     commands: 
        - echo Build completed on `date`
        - echo Pushing the Docker images...
        - docker images
-       - docker push 
+       - docker push $(REPOSITORY_URI)
        - echo Writing image definitions file...
        - printf '{"Parameters":{"ImageUrl":"%s"}}' $REPOSITORY_URI:latest1 > imagedefinitions.json
        - cat imagedefinitions.json
